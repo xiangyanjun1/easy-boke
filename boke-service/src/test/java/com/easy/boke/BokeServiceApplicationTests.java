@@ -1,4 +1,4 @@
-package com.easy.boke.bokeservice;
+package com.easy.boke;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
