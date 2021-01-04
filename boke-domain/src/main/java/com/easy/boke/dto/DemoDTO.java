@@ -20,4 +20,7 @@ public class DemoDTO {
     @NotNull(message = "name不能为空")
     @ApiModelProperty(value = "姓名", example = "向延俊", required = true)
     private String name;
+
+    @ApiModelProperty(value = "年龄", example = "1", required = false)
+    private Integer age;
 }

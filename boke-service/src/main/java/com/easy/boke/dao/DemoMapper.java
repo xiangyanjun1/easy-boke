@@ -2,7 +2,6 @@ package com.easy.boke.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.easy.boke.entity.DemoEntity;
-import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 
 /**
