@@ -19,49 +19,49 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
-      #³õÊ¼»¯´óĞ¡
+      #åˆå§‹åŒ–å¤§å°
       initialSize: 5
-      #×îĞ¡Öµ
+      #æœ€å°å€¼
       minIdle: 5
-      #×î´óÖµ
+      #æœ€å¤§å€¼
       maxActive: 20
-      #×î´óµÈ´ıÊ±¼ä£¬ÅäÖÃ»ñÈ¡Á¬½ÓµÈ´ı³¬Ê±£¬Ê±¼äµ¥Î»¶¼ÊÇºÁÃëms
+      #æœ€å¤§ç­‰å¾…æ—¶é—´ï¼Œé…ç½®è·å–è¿æ¥ç­‰å¾…è¶…æ—¶ï¼Œæ—¶é—´å•ä½éƒ½æ˜¯æ¯«ç§’ms
       maxWait: 60000
-      #ÅäÖÃ¼ä¸ô¶à¾Ã²Å½øĞĞÒ»´Î¼ì²â£¬¼ì²âĞèÒª¹Ø±ÕµÄ¿ÕÏĞÁ¬½Ó
+      #é…ç½®é—´éš”å¤šä¹…æ‰è¿›è¡Œä¸€æ¬¡æ£€æµ‹ï¼Œæ£€æµ‹éœ€è¦å…³é—­çš„ç©ºé—²è¿æ¥
       timeBetweenEvictionRunsMillis: 60000
-      #ÅäÖÃÒ»¸öÁ¬½ÓÔÚ³ØÖĞ×îĞ¡Éú´æµÄÊ±¼ä
+      #é…ç½®ä¸€ä¸ªè¿æ¥åœ¨æ± ä¸­æœ€å°ç”Ÿå­˜çš„æ—¶é—´
       minEvictableIdleTimeMillis: 300000
       validationQuery: SELECT 1 FROM DUAL
       testWhileIdle: true
       testOnBorrow: false
       testOnReturn: false
       poolPreparedStatements: true
-      # ÅäÖÃ¼à¿ØÍ³¼ÆÀ¹½ØµÄfilters£¬È¥µôºó¼à¿Ø½çÃæsqlÎŞ·¨Í³¼Æ£¬
-      #'wall'ÓÃÓÚ·À»ğÇ½£¬SpringBootÖĞÃ»ÓĞlog4j£¬ÎÒ¸Ä³ÉÁËlog4j2
+      # é…ç½®ç›‘æ§ç»Ÿè®¡æ‹¦æˆªçš„filtersï¼Œå»æ‰åç›‘æ§ç•Œé¢sqlæ— æ³•ç»Ÿè®¡ï¼Œ
+      #'wall'ç”¨äºé˜²ç«å¢™ï¼ŒSpringBootä¸­æ²¡æœ‰log4jï¼Œæˆ‘æ”¹æˆäº†log4j2
       filters: stat,wall,log4j2
-      #×î´óPSCacheÁ¬½Ó
+      #æœ€å¤§PSCacheè¿æ¥
       maxPoolPreparedStatementPerConnectionSize: 20
       useGlobalDataSourceStat: true
-      # Í¨¹ıconnectPropertiesÊôĞÔÀ´´ò¿ªmergeSql¹¦ÄÜ£»ÂıSQL¼ÇÂ¼
+      # é€šè¿‡connectPropertieså±æ€§æ¥æ‰“å¼€mergeSqlåŠŸèƒ½ï¼›æ…¢SQLè®°å½•
       connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
-      # ÅäÖÃStatFilter
+      # é…ç½®StatFilter
       web-stat-filter:
-        #Ä¬ÈÏÎªfalse£¬ÉèÖÃÎªtrueÆô¶¯
+        #é»˜è®¤ä¸ºfalseï¼Œè®¾ç½®ä¸ºtrueå¯åŠ¨
         enabled: true
         url-pattern: "/*"
         exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
-      #ÅäÖÃStatViewServlet
+      #é…ç½®StatViewServlet
       stat-view-servlet:
         url-pattern: "/druid/*"
-        #ÔÊĞíÄÇĞ©ip
-#        allow: 127.0.0.1
-#        login-username: admin
-#        login-password: 123456
-        #½ûÖ¹ÄÇĞ©ip
-#        deny: 192.168.1.102
-        #ÊÇ·ñ¿ÉÒÔÖØÖÃ
+        #å…è®¸é‚£äº›ip
+        #        allow: 127.0.0.1
+        #        login-username: admin
+        #        login-password: 123456
+        #ç¦æ­¢é‚£äº›ip
+        #        deny: 192.168.1.102
+        #æ˜¯å¦å¯ä»¥é‡ç½®
         reset-enable: true
-        #ÆôÓÃ
+        #å¯ç”¨
         enabled: true
   application:
     name: xiangyanjun-locallife
@@ -74,48 +74,48 @@ spring:
 #      exchange: logs
 
 mybatis-plus:
-  #Íâ²¿»¯xmlÅäÖÃ
+  #å¤–éƒ¨åŒ–xmlé…ç½®
   #config-location: classpath:mybatis-config.xml
-  #Ö¸¶¨Íâ²¿»¯ MyBatis Properties ÅäÖÃ£¬Í¨¹ı¸ÃÅäÖÃ¿ÉÒÔ³éÀëÅäÖÃ£¬ÊµÏÖ²»Í¬»·¾³µÄÅäÖÃ²¿Êğ
+  #æŒ‡å®šå¤–éƒ¨åŒ– MyBatis Properties é…ç½®ï¼Œé€šè¿‡è¯¥é…ç½®å¯ä»¥æŠ½ç¦»é…ç½®ï¼Œå®ç°ä¸åŒç¯å¢ƒçš„é…ç½®éƒ¨ç½²
   #configuration-properties: classpath:mybatis/config.properties
-  #xmlÉ¨Ãè£¬¶à¸öÄ¿Â¼ÓÃ¶ººÅ»òÕß·ÖºÅ·Ö¸ô£¨¸æËß Mapper Ëù¶ÔÓ¦µÄ XML ÎÄ¼şÎ»ÖÃ£©
+  #xmlæ‰«æï¼Œå¤šä¸ªç›®å½•ç”¨é€—å·æˆ–è€…åˆ†å·åˆ†éš”ï¼ˆå‘Šè¯‰ Mapper æ‰€å¯¹åº”çš„ XML æ–‡ä»¶ä½ç½®ï¼‰
   mapper-locations: classpath*:/mapper/*.xml
-  #MyBaits ±ğÃû°üÉ¨ÃèÂ·¾¶£¬Í¨¹ı¸ÃÊôĞÔ¿ÉÒÔ¸ø°üÖĞµÄÀà×¢²á±ğÃû
+  #MyBaits åˆ«ååŒ…æ‰«æè·¯å¾„ï¼Œé€šè¿‡è¯¥å±æ€§å¯ä»¥ç»™åŒ…ä¸­çš„ç±»æ³¨å†Œåˆ«å
   type-aliases-package: com.yanjun.xiang.entity
-  #Èç¹ûÅäÖÃÁË¸ÃÊôĞÔ£¬Ôò½ö½ö»áÉ¨ÃèÂ·¾¶ÏÂÒÔ¸ÃÀà×÷Îª¸¸ÀàµÄÓò¶ÔÏó
+  #å¦‚æœé…ç½®äº†è¯¥å±æ€§ï¼Œåˆ™ä»…ä»…ä¼šæ‰«æè·¯å¾„ä¸‹ä»¥è¯¥ç±»ä½œä¸ºçˆ¶ç±»çš„åŸŸå¯¹è±¡
   #type-aliases-super-type: java.lang.Object
-  #Ã¶¾ÙÀà É¨ÃèÂ·¾¶£¬Èç¹ûÅäÖÃÁË¸ÃÊôĞÔ£¬»á½«Â·¾¶ÏÂµÄÃ¶¾ÙÀà½øĞĞ×¢Èë£¬ÈÃÊµÌåÀà×Ö¶ÎÄÜ¹»¼òµ¥¿ì½İµÄÊ¹ÓÃÃ¶¾ÙÊôĞÔ
+  #æšä¸¾ç±» æ‰«æè·¯å¾„ï¼Œå¦‚æœé…ç½®äº†è¯¥å±æ€§ï¼Œä¼šå°†è·¯å¾„ä¸‹çš„æšä¸¾ç±»è¿›è¡Œæ³¨å…¥ï¼Œè®©å®ä½“ç±»å­—æ®µèƒ½å¤Ÿç®€å•å¿«æ·çš„ä½¿ç”¨æšä¸¾å±æ€§
   #type-enums-package: com.baomidou.mybatisplus.samples.quickstart.enums
-  #ÏîÄ¿Æô¶¯»á¼ì²éxmlÅäÖÃ´æÔÚ(Ö»ÔÚ¿ª·¢Ê±ºò´ò¿ª)
+  #é¡¹ç›®å¯åŠ¨ä¼šæ£€æŸ¥xmlé…ç½®å­˜åœ¨(åªåœ¨å¼€å‘æ—¶å€™æ‰“å¼€)
   check-config-location: true
-  #SIMPLE£º¸ÃÖ´ĞĞÆ÷ÀàĞÍ²»×öÌØÊâµÄÊÂÇé£¬ÎªÃ¿¸öÓï¾äµÄÖ´ĞĞ´´½¨Ò»¸öĞÂµÄÔ¤´¦ÀíÓï¾ä,REUSE£º¸ÃÖ´ĞĞÆ÷ÀàĞÍ»á¸´ÓÃÔ¤´¦ÀíÓï¾ä,BATCH£º¸ÃÖ´ĞĞÆ÷ÀàĞÍ»áÅúÁ¿Ö´ĞĞËùÓĞµÄ¸üĞÂÓï¾ä
+  #SIMPLEï¼šè¯¥æ‰§è¡Œå™¨ç±»å‹ä¸åšç‰¹æ®Šçš„äº‹æƒ…ï¼Œä¸ºæ¯ä¸ªè¯­å¥çš„æ‰§è¡Œåˆ›å»ºä¸€ä¸ªæ–°çš„é¢„å¤„ç†è¯­å¥,REUSEï¼šè¯¥æ‰§è¡Œå™¨ç±»å‹ä¼šå¤ç”¨é¢„å¤„ç†è¯­å¥,BATCHï¼šè¯¥æ‰§è¡Œå™¨ç±»å‹ä¼šæ‰¹é‡æ‰§è¡Œæ‰€æœ‰çš„æ›´æ–°è¯­å¥
   default-executor-type: REUSE
   configuration:
-    # ÊÇ·ñ¿ªÆô×Ô¶¯ÍÕ·åÃüÃû¹æÔò£¨camel case£©Ó³Éä£¬¼´´Ó¾­µäÊı¾İ¿âÁĞÃû A_COLUMN£¨ÏÂ»®ÏßÃüÃû£© µ½¾­µä Java ÊôĞÔÃû aColumn£¨ÍÕ·åÃüÃû£© µÄÀàËÆÓ³Éä
+    # æ˜¯å¦å¼€å¯è‡ªåŠ¨é©¼å³°å‘½åè§„åˆ™ï¼ˆcamel caseï¼‰æ˜ å°„ï¼Œå³ä»ç»å…¸æ•°æ®åº“åˆ—å A_COLUMNï¼ˆä¸‹åˆ’çº¿å‘½åï¼‰ åˆ°ç»å…¸ Java å±æ€§å aColumnï¼ˆé©¼å³°å‘½åï¼‰ çš„ç±»ä¼¼æ˜ å°„
     map-underscore-to-camel-case: false
-    # È«¾ÖµØ¿ªÆô»ò¹Ø±ÕÅäÖÃÎÄ¼şÖĞµÄËùÓĞÓ³ÉäÆ÷ÒÑ¾­ÅäÖÃµÄÈÎºÎ»º´æ£¬Ä¬ÈÏÎª true
+    # å…¨å±€åœ°å¼€å¯æˆ–å…³é—­é…ç½®æ–‡ä»¶ä¸­çš„æ‰€æœ‰æ˜ å°„å™¨å·²ç»é…ç½®çš„ä»»ä½•ç¼“å­˜ï¼Œé»˜è®¤ä¸º true
     cache-enabled: false
-    #ÀÁ¼ÓÔØ
+    #æ‡’åŠ è½½
     #aggressive-lazy-loading: true
-    #NONE£º²»ÆôÓÃ×Ô¶¯Ó³Éä PARTIAL£ºÖ»¶Ô·ÇÇ¶Ì×µÄ resultMap ½øĞĞ×Ô¶¯Ó³Éä FULL£º¶ÔËùÓĞµÄ resultMap ¶¼½øĞĞ×Ô¶¯Ó³Éä
+    #NONEï¼šä¸å¯ç”¨è‡ªåŠ¨æ˜ å°„ PARTIALï¼šåªå¯¹éåµŒå¥—çš„ resultMap è¿›è¡Œè‡ªåŠ¨æ˜ å°„ FULLï¼šå¯¹æ‰€æœ‰çš„ resultMap éƒ½è¿›è¡Œè‡ªåŠ¨æ˜ å°„
     #auto-mapping-behavior: partial
-    #NONE£º²»×öÈÎºÎ´¦Àí (Ä¬ÈÏÖµ)WARNING£ºÒÔÈÕÖ¾µÄĞÎÊ½´òÓ¡Ïà¹Ø¾¯¸æĞÅÏ¢ FAILING£ºµ±×÷Ó³ÉäÊ§°Ü´¦Àí£¬²¢Å×³öÒì³£ºÍÏêÏ¸ĞÅÏ¢
+    #NONEï¼šä¸åšä»»ä½•å¤„ç† (é»˜è®¤å€¼)WARNINGï¼šä»¥æ—¥å¿—çš„å½¢å¼æ‰“å°ç›¸å…³è­¦å‘Šä¿¡æ¯ FAILINGï¼šå½“ä½œæ˜ å°„å¤±è´¥å¤„ç†ï¼Œå¹¶æŠ›å‡ºå¼‚å¸¸å’Œè¯¦ç»†ä¿¡æ¯
     #auto-mapping-unknown-column-behavior: none
-    #Èç¹û²éÑ¯½á¹ûÖĞ°üº¬¿ÕÖµµÄÁĞ£¬Ôò MyBatis ÔÚÓ³ÉäµÄÊ±ºò£¬²»»áÓ³ÉäÕâ¸ö×Ö¶Î
+    #å¦‚æœæŸ¥è¯¢ç»“æœä¸­åŒ…å«ç©ºå€¼çš„åˆ—ï¼Œåˆ™ MyBatis åœ¨æ˜ å°„çš„æ—¶å€™ï¼Œä¸ä¼šæ˜ å°„è¿™ä¸ªå­—æ®µ
     call-setters-on-nulls: true
-    # Õâ¸öÅäÖÃ»á½«Ö´ĞĞµÄsql´òÓ¡³öÀ´£¬ÔÚ¿ª·¢»ò²âÊÔµÄÊ±ºò¿ÉÒÔÓÃ
+    # è¿™ä¸ªé…ç½®ä¼šå°†æ‰§è¡Œçš„sqlæ‰“å°å‡ºæ¥ï¼Œåœ¨å¼€å‘æˆ–æµ‹è¯•çš„æ—¶å€™å¯ä»¥ç”¨
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config:
     db-config:
-      #±íÃûÏÂ»®ÏßÃüÃûÄ¬ÈÏtrue
+      #è¡¨åä¸‹åˆ’çº¿å‘½åé»˜è®¤true
       table-underline: true
-      #idÀàĞÍ
+      #idç±»å‹
       id-type: auto
-      #ÊÇ·ñ¿ªÆô´óĞ´ÃüÃû£¬Ä¬ÈÏ²»¿ªÆô
+      #æ˜¯å¦å¼€å¯å¤§å†™å‘½åï¼Œé»˜è®¤ä¸å¼€å¯
       #capital-mode: false
-      #Âß¼­ÒÑÉ¾³ıÖµ,(Âß¼­É¾³ıÏÂÓĞĞ§) ĞèÒª×¢ÈëÂß¼­²ßÂÔLogicSqlInjector ÒÔ@Bean·½Ê½×¢Èë
+      #é€»è¾‘å·²åˆ é™¤å€¼,(é€»è¾‘åˆ é™¤ä¸‹æœ‰æ•ˆ) éœ€è¦æ³¨å…¥é€»è¾‘ç­–ç•¥LogicSqlInjector ä»¥@Beanæ–¹å¼æ³¨å…¥
       logic-not-delete-value: 0
-      #Âß¼­Î´É¾³ıÖµ,(Âß¼­É¾³ıÏÂÓĞĞ§)
+      #é€»è¾‘æœªåˆ é™¤å€¼,(é€»è¾‘åˆ é™¤ä¸‹æœ‰æ•ˆ)
       logic-delete-value: 1
-      #Êı¾İ¿âÀàĞÍ
+      #æ•°æ®åº“ç±»å‹
       db-type: sql_server

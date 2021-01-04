@@ -1,7 +1,9 @@
 package com.easy.boke.controller;
 
 import com.easy.boke.dto.DemoDTO;
+import com.easy.boke.entity.ElemeOrder;
 import com.easy.boke.service.DemoService;
+import com.easy.boke.utils.ExcelUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +11,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.Date;
+import java.util.List;
 
 /**
  * @Description
@@ -30,5 +37,20 @@ public class DemoController {
     @ApiOperation(value = "测试接口")
     public Integer demo(@RequestBody @Valid DemoDTO demoDTO){
         return demoService.demo(demoDTO);
+    }
+
+    @PostMapping("/importExcel")
+    @ApiOperation(value = "导入")
+    public void importExcel(MultipartHttpServletRequest multipartRequest){
+        MultipartFile excel = multipartRequest.getFile("filename");
+        try {
+            List<ElemeOrder> excelData = ExcelUtil.readExcelObject(excel, ElemeOrder.class);
+            //检查每列数据
+            for (int i = 0; i < excelData.size(); i++) {
+                System.out.println(excelData.get(i).getOrderNo());
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
     }
 }
