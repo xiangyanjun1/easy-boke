@@ -71,9 +71,7 @@ public class ExcelUtil {
             //此处用来过滤空行
             Cell cell0 = row.getCell(0);
             cell0.setCellType(CellType.STRING);
-            Cell cell1 = row.getCell(1);
-            cell1.setCellType(CellType.STRING);
-            if (cell0.getStringCellValue() == "" && cell1.getStringCellValue() == "") {
+            if (cell0.getStringCellValue() == "") {
                 continue;
             }
             try {
@@ -94,7 +92,6 @@ public class ExcelUtil {
                         setFieldValue(obj, f, wookbook, cell);
                     }
                 }
-                System.out.println(obj);
                 // 添加到集合中
                 list.add(obj);
             } catch (InstantiationException e1) {

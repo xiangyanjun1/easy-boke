@@ -16,6 +16,8 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Date;
 import java.util.List;
 
@@ -41,7 +43,8 @@ public class DemoController {
 
     @PostMapping("/importExcel")
     @ApiOperation(value = "导入")
-    public void importExcel(MultipartHttpServletRequest multipartRequest){
+    public void importExcel(HttpServletRequest request){
+        MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
         MultipartFile excel = multipartRequest.getFile("filename");
         try {
             List<ElemeOrder> excelData = ExcelUtil.readExcelObject(excel, ElemeOrder.class);

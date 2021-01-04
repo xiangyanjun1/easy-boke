@@ -12,6 +12,6 @@ import lombok.Data;
  */
 @Data
 public class ElemeOrder {
-    @ExcelAnnotation(columnIndex = 1,columnName = "订单号")
+    @ExcelAnnotation(columnIndex = 0,columnName = "订单号")
     private String orderNo;
 }
