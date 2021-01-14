@@ -1,6 +1,7 @@
 package com.easy.boke.utils;
 
 import com.easy.boke.config.ExcelAnnotation;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -20,6 +21,7 @@ import java.util.List;
  * @Since 1.0
  * @Date 2021/1/4 0004
  */
+@Slf4j
 public class ExcelUtil {
     /**
      * 读取excel反射实体
@@ -92,6 +94,7 @@ public class ExcelUtil {
                         setFieldValue(obj, f, wookbook, cell);
                     }
                 }
+                log.info(obj.toString());
                 // 添加到集合中
                 list.add(obj);
             } catch (InstantiationException e1) {

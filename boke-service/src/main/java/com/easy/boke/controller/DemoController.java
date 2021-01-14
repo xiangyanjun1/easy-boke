@@ -41,8 +41,8 @@ public class DemoController {
         return demoService.demo(demoDTO);
     }
 
-    @PostMapping("/importExcel")
-    @ApiOperation(value = "导入")
+    @PostMapping("/checkingOrderExcel")
+    @ApiOperation(value = "对账")
     public void importExcel(HttpServletRequest request){
         MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
         MultipartFile excel = multipartRequest.getFile("filename");
