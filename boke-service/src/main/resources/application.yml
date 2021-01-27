@@ -1,7 +1,5 @@
 server:
   port: 8888
-  servlet:
-    context-path: /boke
 spring:
   redis:
     host: 8.129.121.196
