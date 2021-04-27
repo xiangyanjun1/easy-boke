@@ -12,4 +12,6 @@ import com.easy.boke.dto.DemoDTO;
 public interface DemoService {
 
     Integer demo(DemoDTO demoDTO);
+
+    void rlease();
 }

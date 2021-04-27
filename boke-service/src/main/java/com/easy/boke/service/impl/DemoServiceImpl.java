@@ -2,7 +2,7 @@ package com.easy.boke.service.impl;
 
 import com.easy.boke.dao.DemoMapper;
 import com.easy.boke.dto.DemoDTO;
-import com.easy.boke.entity.DemoEntity;
+import com.easy.boke.entity.Demo;
 import com.easy.boke.service.DemoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +24,13 @@ public class DemoServiceImpl implements DemoService {
 
     @Override
     public Integer demo(DemoDTO demoDTO) {
-        DemoEntity demoEntity = new DemoEntity();
-        demoEntity.setName(demoDTO.getName());
-        return demoMapper.insert(demoEntity);
+        Demo demo = new Demo();
+        demo.setName(demoDTO.getName());
+        return demoMapper.insert(demo);
+    }
+
+    @Override
+    public void rlease() {
+        ReleaseFactory.query().pay();
     }
 }

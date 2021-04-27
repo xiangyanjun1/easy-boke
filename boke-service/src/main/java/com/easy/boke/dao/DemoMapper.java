@@ -1,7 +1,7 @@
 package com.easy.boke.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.easy.boke.entity.DemoEntity;
+import com.easy.boke.entity.Demo;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,6 +12,6 @@ import org.springframework.stereotype.Component;
  * @Date 2020/11/7 0007
  */
 @Component
-public interface DemoMapper extends BaseMapper<DemoEntity> {
+public interface DemoMapper extends BaseMapper<Demo> {
 
 }

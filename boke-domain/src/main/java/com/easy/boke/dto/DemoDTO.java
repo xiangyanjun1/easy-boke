@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 /**
  * @Description
@@ -15,7 +16,7 @@ import javax.validation.constraints.NotNull;
  */
 @Data
 @ApiModel(value = "DemoDTO", description = "测试DTO")
-public class DemoDTO {
+public class DemoDTO implements Serializable {
 
     @NotNull(message = "name不能为空")
     @ApiModelProperty(value = "姓名", example = "向延俊", required = true)

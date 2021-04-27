@@ -11,11 +11,13 @@ spring:
         max-active: 10
         min-idle: 2
         max-wait: 1000
-    password: !@#123qwe
+    password: '!@#123qwe'
   datasource:
     url: jdbc:mysql://8.129.121.196:3306/easy_boke?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&serverTimezone=PRC&useSSL=false
+#    url: jdbc:mysql://localhost:3306/easy_boke?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&serverTimezone=PRC&useSSL=false
     username: root
-    password: !@#123qwe
+    password: '!@#123qwe'
+#    password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
@@ -65,13 +67,21 @@ spring:
         enabled: true
   application:
     name: xiangyanjun-locallife
-#  rabbitmq:
-#    host: 127.0.0.1
-#    port: 5672
-#    username: admin
-#    password: admin
-#    template:
-#      exchange: logs
+  rabbitmq:
+    listener:
+      simple:
+#        手动确认模式
+        acknowledge-mode: MANUAL
+        default-requeue-rejected: false
+      type: simple
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    template:
+      exchange: logs
+#      生产者确认模式
+    publisher-confirm-type: correlated
 
 mybatis-plus:
   #外部化xml配置

@@ -12,8 +12,7 @@ import lombok.Data;
  * @Date 2020/11/7 0007
  */
 @Data
-@TableName("demo")
-public class DemoEntity {
+public class Demo {
 
     private Integer id;
 

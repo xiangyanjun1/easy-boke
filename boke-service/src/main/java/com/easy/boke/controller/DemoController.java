@@ -1,25 +1,24 @@
 package com.easy.boke.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.easy.boke.dto.DemoDTO;
 import com.easy.boke.entity.ElemeOrder;
+import com.easy.boke.mq.DelayProducer;
 import com.easy.boke.service.DemoService;
 import com.easy.boke.utils.ExcelUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Description
@@ -34,11 +33,57 @@ import java.util.List;
 public class DemoController {
     @Autowired
     private DemoService demoService;
+//    @Autowired
+//    private RedissonClient redissonClient;
+    @Autowired
+    private DelayProducer delayProducer;
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     @PostMapping("/demoFunction")
     @ApiOperation(value = "测试接口")
-    public Integer demo(@RequestBody @Valid DemoDTO demoDTO){
+    public Integer demo( @Valid DemoDTO demoDTO){
+//        redisTemplate.opsForHash().put("refund", "yo",true);
+//        redisTemplate.expire("refund",2,TimeUnit.MINUTES);
+//        Boolean o = (Boolean) redisTemplate.opsForHash().get("refund", "yo");
+//        System.out.println(o);
         return demoService.demo(demoDTO);
+    }
+
+    @GetMapping("/release")
+    @ApiOperation(value = "release")
+    public void release(){
+        demoService.rlease();
+    }
+
+    @GetMapping("/send")
+    @ApiOperation(value = "send")
+    public void send(){
+        redisTemplate.opsForValue().set("shop",100);
+        Object shop = redisTemplate.opsForValue().get("shop");
+        System.out.println(shop);
+//        redisTemplate.opsForValue().set("shop",shop-1);
+//        delayProducer.sendCustomMsg("yoyo");
+    }
+
+
+    @GetMapping("/lock")
+    @ApiOperation(value = "lock")
+    public Boolean lock() throws InterruptedException {
+
+//        RLock lock = redissonClient.getLock("lockKey");
+//        boolean b = lock.tryLock(5L,60L, TimeUnit.SECONDS);
+//        System.out.println(b);
+//        if (b){
+//            try {
+//                Thread.sleep(20000);
+//                return true;
+//            }finally {
+//                lock.unlock();
+//            }
+//        }else {
+            return false;
+//        }
     }
 
     @PostMapping("/checkingOrderExcel")
